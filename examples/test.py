@@ -1,13 +1,11 @@
 from discordwebhooks import *
-import sys
-url = sys.argv[0]
+url = "discord webhook url"
 webhook = DiscordWebhooks(url, username="DiscordWebhooks")
-embed = Embeds(title="MADARCHOD")
+embed = Embeds(title="Embed Title")
 fields = Field()
 fields.add_field("Testing Title", "Testing Value", False)
 fields.add_field("Testing Title", "Testing Value", False)
 embed.add_fields(fields)
 webhook.embed(embed)
-webhook.send_message()
-
-
+webhook.loop.run_until_complete(webhook.send_message())
+webhook.loop.close()

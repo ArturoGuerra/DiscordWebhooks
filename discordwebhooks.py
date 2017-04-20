@@ -1,7 +1,9 @@
 import json
 import logging
-import requests
 import asyncio
+import requests
+from functools import partial
+
 class DiscordWebhooks():
     def __init__(self, url, content="", username="", avatar_url="", logger=None, loop=None):
         self.url = url
@@ -26,9 +28,10 @@ class DiscordWebhooks():
         self.data['embeds'] = self.embeds
         self.logger.info(self.data)
         return self.data
-    def send_message(self):
+    async def send_message(self):
         data = json.dumps(self.format())
-        response = requests.post(self.url, data=data, headers={"Content-Type": "application/json"})
+        func = partial(requests.post, self.url, data=data, headers={"Content-Type": "application/json"})
+        response = await self.loop.run_in_executor(None, func)
         self.logger.info(response)
         self.logger.info(response.text)
 
