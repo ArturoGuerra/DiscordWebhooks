@@ -1,5 +1,5 @@
 # DiscordWebhooks
-DiscordWebhook api wrapper, It makes the use of embed easy thanks to its Object oriented design.
+DiscordWebhook api wrapper, It makes the use of embeds easy thanks to its Object oriented design.
 This wrapper uses the requests module and an asyncio executor to make all requests threaded so there will be no blocking.
 
 # Requirements
