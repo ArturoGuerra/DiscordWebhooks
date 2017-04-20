@@ -1,5 +1,5 @@
 
-class Field():
+class Fields():
     def __init__(self):
         self.field = list()
     def add_field(self, title, value, inline=True):

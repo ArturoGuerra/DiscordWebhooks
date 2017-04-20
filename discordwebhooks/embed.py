@@ -1,5 +1,5 @@
 
-class Embeds():
+class Embed():
     def __init__(self, **kwargs):
         self.embed = dict()
         self.embed['fields'] = list()
@@ -7,9 +7,9 @@ class Embeds():
         for arg in kwargs:
             if arg in valid_args:
                 self.embed[arg] = kwargs[arg]
-    def add_fields(self, field):
-        if field.__class__.__name__ == "Field":
-            self.embed['fields'] = field.content()
+    def add_fields(self, fields):
+        if fields.__class__.__name__ == "Fields":
+            self.embed['fields'] = fields.content()
     def add_footer(self, text, icon_url=None):
         footer = dict()
         footer['text'] = text

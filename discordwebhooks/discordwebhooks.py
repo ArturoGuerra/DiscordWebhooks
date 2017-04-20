@@ -20,7 +20,7 @@ class DiscordWebhooks():
         self.embeds = list()
         self.data = dict()
     def embed(self, embed):
-        if embed.__class__.__name__ == "Embeds":
+        if embed.__class__.__name__ == "Embed":
             self.embeds.append(embed.content())
     def format(self):
         self.data['username'] = self.username

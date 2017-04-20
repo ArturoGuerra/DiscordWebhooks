@@ -1,4 +1,4 @@
 
-from .field import Field
-from .embed import Embeds
+from .fields import Fields
+from .embed import Embed
 from .discordwebhooks import DiscordWebhooks
