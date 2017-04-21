@@ -26,6 +26,7 @@ class DiscordWebhooks():
         self.data['username'] = self.username
         self.data['content'] = self.content
         self.data['embeds'] = self.embeds
+        self.data['avatar_url'] = self.avatar_url
         self.logger.info(self.data)
         return self.data
     async def send_message(self):
