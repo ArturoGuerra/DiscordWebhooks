@@ -3,7 +3,7 @@ class Embed():
     def __init__(self, **kwargs):
         self.embed = dict()
         self.embed['fields'] = list()
-        valid_args = ["title", "description", "url", "color", "footer"]
+        valid_args = ["title", "description", "url", "color", "timestamp"]
         for arg in kwargs:
             if arg in valid_args:
                 self.embed[arg] = kwargs[arg]
@@ -16,13 +16,7 @@ class Embed():
         if icon_url:
             footer['icon_url'] = icon_url
         self.embed['footer'] = footer
-    def add_video(self, url, height, width):
-        video = dict()
-        video['url'] = url
-        video['width'] = width
-        video['height'] = height
-        self.embed['video'] = video
-    def add_image(self, url, height, width):
+    def add_image(self, url, height=None, width=None):
         image = dict()
         image['url'] = url
         image['width'] = width
@@ -41,7 +35,7 @@ class Embed():
         provider['url'] = url
         provider['name'] = name
         self.embed['provider'] = provider
-    def add_thumbnail(self, url, height, width, proxy_url=None):
+    def add_thumbnail(self, url, height=None, width=None, proxy_url=None):
         thumbnail = dict()
         thumbnail['url'] = url
         thumbnail['height'] = height
